@@ -13,8 +13,4 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-<<<<<<< HEAD
-/public/app
-/resources/views/spa
-=======
->>>>>>> d3126ceadb64326a636446525693eb197d6a2ea2
+
