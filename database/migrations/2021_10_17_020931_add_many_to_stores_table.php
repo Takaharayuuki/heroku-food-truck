@@ -20,6 +20,7 @@ class AddManyToStoresTable extends Migration
             $table->string('opening_hours');
             $table->string('closing_time');
             $table->string('category');
+            $table->dropColumn('address');
         });
     }
 
@@ -31,7 +32,6 @@ class AddManyToStoresTable extends Migration
     public function down()
     {
         Schema::table('stores', function (Blueprint $table) {
-            $table->dropColumn('address');
         });
     }
 }
