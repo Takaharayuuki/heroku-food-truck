@@ -21,6 +21,8 @@ class AddManyToStoresTable extends Migration
             $table->string('closing_time');
             $table->string('category');
             $table->dropColumn('address');
+            $table->dropColumn('business_hours');
+            $table->dropColumn('period');
         });
     }
 
