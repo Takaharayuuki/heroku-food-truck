@@ -62,10 +62,7 @@ class StoreController extends Controller
         // 画像ファイルの有無の確認
         if ($request->hasFile('file')) {
             $file_binary = base64_encode(file_get_contents($request->file('file')->getRealPath()));
-            dd($file_binary);
-            // $file_name = $file->getClientOriginalName();
-            // $request->file('file')->storeAs('public/', $file_name);
-            // $store->thumbnail_url = '/storage/' . $file_name;
+            $store->thumbnail_url = $file_binary;
         }
         $store->name = $form['storeName'];
         $store->category = $form['storeCategory'];
