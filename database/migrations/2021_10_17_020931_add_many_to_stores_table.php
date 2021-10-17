@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCategoryToToStoresTable extends Migration
+class AddManyToStoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,11 @@ class AddCategoryToToStoresTable extends Migration
     public function up()
     {
         Schema::table('stores', function (Blueprint $table) {
+            $table->string('prefecture');
+            $table->string('city');
+            $table->string('town');
+            $table->string('opening_hours');
+            $table->string('closing_time');
             $table->string('category');
         });
     }
