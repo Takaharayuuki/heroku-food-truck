@@ -13,9 +13,11 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        dd($request);
+        // $reviews = Review::where('user_id', $request$id)->get();
+        // return $reviews;
     }
 
     /**
@@ -43,6 +45,7 @@ class ReviewController extends Controller
             'title' => $request->title,
             'comment' => $request->comment,
             'rate' => $request->rate,
+            'reviewDt' => $request->reviewDt
         ]);
 
         $store_review = Review::where('store_id', $request->storeId)->get();
@@ -68,10 +71,15 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        $reviews = Review::where('store_id', $id)->get();
-        return $reviews;
+        if ($request->path == 'mypage') {
+            $reviews = Review::where('user_id', $id)->orderBy('created_at', 'desc')->get();
+            return $reviews;
+        } else {
+            $reviews = Review::where('store_id', $id)->orderBy('created_at', 'desc')->get();
+            return $reviews;
+        }
     }
     /**
      * Show the form for editing the specified resource.
